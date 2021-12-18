@@ -8,6 +8,7 @@
 
 body {
   height: 100vh;
+  font-family: "Red Hat Display", sans-serif;
 }
 
 // Variables
@@ -19,6 +20,21 @@ $bright-blue: hsl(245, 75%, 52%);
 $ver-pale-blue: hsl(225, 100%, 98%);
 $desaturated-blue: hsl(224, 23%, 55%);
 $dark-blue: hsl(223, 47%, 23%);
+
+// Mixins
+@mixin button($theme) {
+  background-color: $theme;
+  border: none;
+  outline: none;
+  padding: 0.6rem 3.5rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  color: #fff;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+// Main
 
 .main {
   height: 100%;
@@ -41,8 +57,10 @@ $dark-blue: hsl(223, 47%, 23%);
   }
 }
 
+// Card
+
 .card {
-  max-width: 22vw;
+  max-width: 24vw;
   height: auto;
   background: #fff;
   border-radius: 1rem;
@@ -51,6 +69,190 @@ $dark-blue: hsl(223, 47%, 23%);
   &-image img {
     width: 100%;
     height: 28vh;
-    border-radius: 1rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+
+  &-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .card-title {
+      font-size: 1.2rem;
+      text-transform: capitalize;
+      font-weight: 900;
+      padding: 1rem 1rem;
+    }
+
+    .card-text {
+      font-size: 15px;
+      color: $desaturated-blue;
+      padding: 0 2rem;
+    }
+
+    .card-plans {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin: 1rem auto;
+      padding: 5px 1.3rem;
+      background-color: $ver-pale-blue;
+      border-radius: 10px;
+
+      & img {
+        width: auto;
+        height: 6vh;
+      }
+
+      .plan-price {
+        display: flex;
+        flex-direction: column;
+
+        & p:first-child {
+          font-size: 14px;
+          font-weight: 600;
+          padding: 0 2rem 0 1rem;
+        }
+
+        & p:nth-child(2) {
+          font-size: 13px;
+          color: $desaturated-blue;
+          margin-left: -1.2rem;
+        }
+      }
+
+      & a {
+        font-size: 13px;
+        text-transform: capitalize;
+        color: $bright-blue;
+        font-weight: 600;
+      }
+
+      & a:hover {
+        color: $pale-blue;
+      }
+    }
+  }
+
+  &-btn button {
+    @include button($theme: hsl(245, 75%, 52%));
+  }
+
+  &-btn button:hover {
+    background-color: $pale-blue;
+  }
+
+  &-link a {
+    color: $desaturated-blue;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  &-link a:hover {
+    color: $dark-blue;
+  }
+}
+
+// Media queries
+
+// Mobile
+@media screen and (min-width: 375px) and (max-width: 568px) {
+  .main {
+    background: url("/images/pattern-background-mobile.svg") no-repeat
+      center/cover;
+  }
+
+  .card {
+    max-width: 50vw;
+    height: auto;
+
+    &-image img {
+      width: 100%;
+      height: 28vh;
+    }
+
+    &-body {
+      .card-text {
+        font-size: 12px;
+        padding: 0 1.3rem;
+      }
+
+      .card-plans {
+        margin: 1rem auto;
+        padding: 5px 1rem;
+        background-color: $ver-pale-blue;
+        border-radius: 10px;
+
+        & img {
+          width: auto;
+          height: 6vh;
+        }
+
+        .plan-price {
+          display: flex;
+          flex-direction: column;
+
+          & p {
+            font-size: 12px;
+            padding: 0 2rem 0 1rem;
+          }
+        }
+
+        & a {
+          font-size: 12px;
+        }
+      }
+    }
+
+    &-btn button {
+      padding: 0.8rem 2.9rem;
+    }
+
+    &-link a {
+      font-size: 14px;
+    }
+  }
+}
+
+// Tablet
+
+@media screen and (min-width: 569px) and (max-width: 629px) {
+  .card {
+    max-width: 45vw;
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 630px) and (max-width: 768px) {
+  .card {
+    max-width: 40vw;
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 920px) {
+  .card {
+    max-width: 35vw;
+    height: auto;
+  }
+}
+
+// Desktops
+
+@media screen and (min-width: 921px) and (max-width: 1099px) {
+  .card {
+    max-width: 30vw;
+    height: auto;
+  }
+}
+
+// Larger Screens
+@media screen and (min-width: 1100px) and (max-width: 1440px) {
+  .card {
+    max-width: 24vw;
+    height: auto;
   }
 }
