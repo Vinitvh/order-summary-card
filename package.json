@@ -1,0 +1,27 @@
+{
+  "name": "order-summary-component-main",
+  "version": "1.0.0",
+  "description": "This is a solution for Frontend mentor challenge.",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch scss/styles.scss dist/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vinitvh/order-summary-card.git"
+  },
+  "keywords": [
+    "HTML",
+    "SCSS",
+    "Flexbox"
+  ],
+  "author": "Vinitvh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Vinitvh/order-summary-card/issues"
+  },
+  "homepage": "https://github.com/Vinitvh/order-summary-card#readme",
+  "devDependencies": {
+    "sass": "^1.45.0"
+  }
+}
